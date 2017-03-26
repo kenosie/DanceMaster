@@ -7,12 +7,14 @@ import java.awt.image.*;
 import java.io.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.*;
+import javafx.scene.*;
 
 public class DispRes extends JPanel
 {
-   private static final int framex = 768;
-   private static final int framey = 1024;
+   private static final int framex = 1024;
+   private static final int framey = 768;
    private Image image;
    private int bpm;
    private Graphics myBuffer;
@@ -22,12 +24,12 @@ public class DispRes extends JPanel
    public DispRes()
    {      
       // JFrame clipPlayer = new JFrame("Dance Clip");
-//       clipPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//       MediaPlayer mediaPanel = new MediaPlayer();
-//       clipPlayer.add(mediaPanel);
-//       clipPlayer.setSize(800,700);
-//       clipPlayer.setLocationRelativeTo(null);
-//       clipPlayer.setVisible(true);
+   //       clipPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   //       MediaPlayer mediaPanel = new MediaPlayer();
+   //       clipPlayer.add(mediaPanel);
+   //       clipPlayer.setSize(800,700);
+   //       clipPlayer.setLocationRelativeTo(null);
+   //       clipPlayer.setVisible(true);
       //mediaPlayer.playMedia("lmao.mp4");
       
       //String bip = "bip.mp3";
@@ -35,10 +37,20 @@ public class DispRes extends JPanel
       //MediaPlayer mediaPlayer = new MediaPlayer(hit);
       //mediaPlayer.play();
       
-      Stage s = new Stage(StageStyle.DECORATED);
+      Stage s = new Stage();
       s.setTitle("Dance Sequence");
       Group root = new Group();
-      Media media = new Media();
+      int rand = ((int)Math.random() * 3 + 1);
+      Media media = new Media(new File(rand + ".avi").toURI().toString());
+      MediaPlayer mediaPlayer = new MediaPlayer(media);
+      mediaPlayer.play();
+      
+      MediaView mediaView = new MediaView(mediaPlayer);
+   
+      root.getChildren().add(mediaView);
+      Scene scene = SceneBuilder.create().width(framex).height(framey).root(root).build();
+      s.setScene(scene);
+      s.show();
    }
    
    public void setBPM(long l)
