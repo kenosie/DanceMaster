@@ -21,8 +21,18 @@ public class DispRes extends JPanel
    private Boolean inMainMenu = true;
    public Dimension newDanceSize, quitSize, size, size2;
    int buttonPress = 0; //1 = MainMenu Panel 2 = New Dance
+   private File song;
    public DispRes()
    {      
+      String songFile = song.toString();
+
+      JFrame clipPlayer = new JFrame("Dance Clip");
+      clipPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      MediaPlayer mediaPanel = new MediaPlayer();
+      clipPlayer.add(mediaPanel);
+      clipPlayer.setSize(800,700);
+      clipPlayer.setLocationRelativeTo(null);
+      clipPlayer.setVisible(true);
       // JFrame clipPlayer = new JFrame("Dance Clip");
    //       clipPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    //       MediaPlayer mediaPanel = new MediaPlayer();
@@ -67,8 +77,14 @@ public class DispRes extends JPanel
    {
       buttonPress = i;
    }
-}
    
+   public void setFile(File f)
+   {
+      song = f;
+   }
+}
+
+
 /*
 to do:
 display dance moves over music
