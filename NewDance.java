@@ -8,8 +8,7 @@ import java.awt.image.*;
 import java.io.*;
 import javafx.scene.media.Media;
 import java.util.*;
-//take out implements key listener when rest moved to new panel
-public class NewDance extends JPanel implements KeyListener
+public class NewDance extends JPanel
 {
    private static final int framex = 1024;
    private static final int framey = 768;
@@ -25,9 +24,6 @@ public class NewDance extends JPanel implements KeyListener
       
    public NewDance()
    {
-      //move this to new panel later
-      timevals = new ArrayList();
-      
       this.setLayout(null);
       
        //image = new ImageIcon("background.png").getImage();
@@ -130,20 +126,5 @@ public class NewDance extends JPanel implements KeyListener
    public int getButtonPress()
    {
       return buttonPress;
-   }
-   
-   //button press event (move to new panel later)
-   public void keyPressed(KeyEvent e)
-   {
-      int key = e.getKeyCode();
-      if(key == KeyEvent.VK_SPACE)
-      {
-      }
-   }
-   public void keyReleased(KeyEvent e)
-   {
-   }
-   public void keyTyped(KeyEvent e)
-   {
    }
 }
