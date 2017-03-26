@@ -109,6 +109,16 @@ public class BeatCounter extends JPanel implements KeyListener
       return buttonPress;
    }
    
+   public long getBPM()
+   {
+      long sum = 0;
+      for(int i=0;i<timevals.size();i++)
+      {
+         sum += ((long)timevals.get(i));
+      }
+      return sum/timevals.size();
+   }
+   
    public void keyPressed(KeyEvent e)
    {  
       int key = e.getKeyCode();

@@ -7,12 +7,14 @@ import java.awt.image.*;
 import java.io.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.*;
 
 public class DispRes extends JPanel
 {
    private static final int framex = 768;
    private static final int framey = 1024;
    private Image image;
+   private int bpm;
    private Graphics myBuffer;
    private Boolean inMainMenu = true;
    public Dimension newDanceSize, quitSize, size, size2;
@@ -21,10 +23,10 @@ public class DispRes extends JPanel
    public DispRes()
    {      
       String songFile = song.toString();
-      
+
       JFrame clipPlayer = new JFrame("Dance Clip");
       clipPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      MediaPlayer mediaPanel = new MediaPlayer(song.toURI().toURL());
+      MediaPlayer mediaPanel = new MediaPlayer();
       clipPlayer.add(mediaPanel);
       clipPlayer.setSize(800,700);
       clipPlayer.setLocationRelativeTo(null);
@@ -35,6 +37,21 @@ public class DispRes extends JPanel
       //Media hit = new Media(new File(bip).toURI().toString());
       //MediaPlayer mediaPlayer = new MediaPlayer(hit);
       //mediaPlayer.play();
+   }
+   
+   public void setBPM(long l)
+   {
+      bpm = (int)(l);
+   }
+   
+   public int getButtonPress()
+   {
+      return buttonPress;
+   }
+   
+   public void setButtonPress(int i)
+   {
+      buttonPress = i;
    }
    
    public void setFile(File f)
