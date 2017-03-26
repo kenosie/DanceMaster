@@ -23,14 +23,14 @@ public class MainMenu extends JPanel
       
       JLabel title = new JLabel("Dance Master");
       title.setForeground(Color.WHITE);
-      title.setFont(new Font("Impact", Font.BOLD, 30));
+      title.setFont(new Font("Corbel", Font.BOLD, 30));
       
       JButton newDance = new JButton("New Dance");
-      newDance.setFont(new Font("Impact", Font.BOLD, 30));
+      newDance.setFont(new Font("Corbel", Font.BOLD, 30));
       newDance.addActionListener(new NewDanceListener());
       
       JButton quit  = new JButton("Quit");
-      quit.setFont(new Font("Impact", Font.BOLD, 30));
+      quit.setFont(new Font("Corbel", Font.BOLD, 30));
       quit.addActionListener(new QuitListener());
       
       size = title.getPreferredSize();
@@ -38,7 +38,7 @@ public class MainMenu extends JPanel
       newDanceSize = newDance.getPreferredSize();
       newDance.setBounds((framex / 2) - (newDanceSize.width / 2), 270, newDanceSize.width, newDanceSize.height);
       quitSize = quit.getPreferredSize();
-      quit.setBounds((framex / 2) - (quitSize.width / 2), 670, quitSize.width, quitSize.height);
+      quit.setBounds((framex / 2) - (quitSize.width / 2), 470, quitSize.width, quitSize.height);
       
       add(title);
       add(newDance);
@@ -57,6 +57,7 @@ public class MainMenu extends JPanel
    
    public void paintComponent(Graphics g)
    {
+      g.clearRect(0, 0, framex, framey);
       //g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
    }
          

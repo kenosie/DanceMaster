@@ -26,8 +26,8 @@ public class Main
             switch(main.getButtonPress())
             {
                case 2: 
-               frame.setVisible(false);
-               frame.setContentPane(nd1);
+                  frame.setVisible(false);
+                  frame.setContentPane(nd1);
                   panel = 2;
                   main.setButtonPress(0);
                   frame.setVisible(true);
@@ -48,7 +48,7 @@ public class Main
                   frame.setVisible(true);
                   break;
                case 2:
-               frame.setVisible(false);
+                  frame.setVisible(false);
                   frame.setContentPane(main);
                   nd1.setButtonPress(0);
                   panel = 1;
