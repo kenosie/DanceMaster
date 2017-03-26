@@ -39,6 +39,13 @@ public class DispRes extends JPanel
       CanvasVideoSurface videoSurface = mediaPlayerFactory.newVideoSurface(canvas);
       mediaPlayer.setVideoSurface(videoSurface);
       
+      long sum = 0;
+      for(i=0;i<BeatCounter.timevals.size();i++)
+      {
+         sum+=BeatCounter.timevals.get(i);
+      }
+      long avg = sum/BeatCounter.timevals.size();
+      
       //mediaPlayer.playMedia("lmao.mp4");
       
       //String bip = "bip.mp3";
