@@ -10,7 +10,7 @@ public class Main
       MainMenu main = new MainMenu();
       NewDance nd1 = new NewDance();
       BeatCounter bc = new BeatCounter();
-      DispRes dr = new DispRes();
+      //DispRes dr = new DispRes();
       int panel = 1; //Stores what panel it's on; 1 = MainMenu 2 = NewDance 3 = BeatTap 4 = ViewDance
       Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
       
@@ -74,35 +74,35 @@ public class Main
                   frame.setVisible(true);
                   break;
                case 2: //Forward?
-                  frame.setVisible(false);
-                  dr.setBPM(bc.getBPM());
-                  frame.setContentPane(dr);
-                  panel = 4;
-                  bc.setButtonPress(0);
-                  frame.setVisible(true);
+                  // frame.setVisible(false);
+               //    dr.setBPM(bc.getBPM());
+                  // frame.setContentPane(dr);
+                  // panel = 4;
+                  // bc.setButtonPress(0);
+                  // frame.setVisible(true);
                   break;
             }
          }
-         else if(panel == 4)
-         {
-            switch(dr.getButtonPress())
-            {
-               case 1:
-                  frame.setVisible(false);
-                  frame.setContentPane(bc);
-                  panel = 3;
-                  dr.setButtonPress(0);
-                  frame.setVisible(true);
-                  break;
-               case 2:
-                  frame.setVisible(false);
-                  frame.setContentPane(bc);
-                  panel = 3;
-                  dr.setButtonPress(0);
-                  frame.setVisible(true);
-                  break;
-            }
-         }
+         // else if(panel == 4)
+         // {
+            // switch(dr.getButtonPress())
+            // {
+               // case 1:
+                  // frame.setVisible(false);
+                  // frame.setContentPane(bc);
+                  // panel = 3;
+                  // dr.setButtonPress(0);
+                  // frame.setVisible(true);
+                  // break;
+               // case 2:
+                  // frame.setVisible(false);
+                  // frame.setContentPane(bc);
+                  // panel = 3;
+                  // dr.setButtonPress(0);
+                  // frame.setVisible(true);
+                  // break;
+            // }
+         // }
       }
    }
 }

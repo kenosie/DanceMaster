@@ -63,7 +63,7 @@ public class BeatCounter extends JPanel implements KeyListener
       public void actionPerformed(ActionEvent e) //sets start time, plays music
       {
          String songFile = song.toString();
-         Media hit = new Media(songFile.toURI().toString());
+         Media hit = new Media(new File(songFile).toURI().toString());
          MediaPlayer mediaPlayer = new MediaPlayer(hit);
          start = System.nanoTime();
          mediaPlayer.setStartTime(Duration.millis((double)(start/Math.pow(10,6))));
