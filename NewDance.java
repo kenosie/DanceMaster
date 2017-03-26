@@ -17,7 +17,6 @@ public class NewDance extends JPanel
    private Image image;
    public Dimension size;
    private int buttonPress = 0; //Stores if next or back button is pressed: 0 = none 1 = back 2 = next -1 = file selected
-   private ArrayList timevals;
    private int start, end;
    File song;
    Boolean selection = false;
