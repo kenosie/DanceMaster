@@ -80,21 +80,16 @@ public class NewDance extends JPanel
       {
          JButton selectSong = new JButton("Select"); //Select button in window
          JFileChooser fc = new JFileChooser();
-         fc.setCurrentDirectory(new java.io.File("C:/"));
+         fc.setCurrentDirectory(new java.io.File("C:/Users/"));
          fc.setDialogTitle("Select Song File");
          FileNameExtensionFilter filter = new FileNameExtensionFilter("MPEG-I Layer 3 (*.mp3)", "mp3"); //sets filter for mp3 files
          fc.setFileFilter(filter);
          fc.setFileSelectionMode(JFileChooser.FILES_ONLY); //Opens the file selector that only lets you pick mp3 files
          
-         selection = fc.showOpenDialog(selectSong) == JFileChooser.APPROVE_OPTION;
-         
-         if(selection)
+         if(fc.showOpenDialog(selectSong) == JFileChooser.APPROVE_OPTION)
          {
             song = fc.getSelectedFile();
-            String songText = song.getAbsolutePath();
-            
-            
-            
+            String songText = song.getAbsolutePath();   
             songText = songText.substring(songText.lastIndexOf("\\") + 1, songText.lastIndexOf("."));
             songName.setText("Song Selected: " + songText);
             size = songName.getPreferredSize();
