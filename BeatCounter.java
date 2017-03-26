@@ -10,6 +10,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.*;
 import java.util.*;;
+
 //take out implements key listener when rest moved to new panel
 public class BeatCounter extends JPanel implements KeyListener
 {
