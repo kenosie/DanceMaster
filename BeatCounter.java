@@ -20,7 +20,7 @@ public class BeatCounter extends JPanel implements KeyListener
    private Image image;
    public Dimension size;
    private int buttonPress = 0; //Stores if next or back button is pressed: 0 = none 1 = back 2 = next
-   private ArrayList timevals;
+   public static ArrayList timevals;
    private long start, end;
    private int index = 0;
    private File song;
@@ -107,6 +107,16 @@ public class BeatCounter extends JPanel implements KeyListener
    public int getButtonPress()
    {
       return buttonPress;
+   }
+   
+   public long getBPM()
+   {
+      long sum = 0;
+      for(int i=0;i<timevals.size();i++)
+      {
+         sum += ((long)timevals.get(i));
+      }
+      return sum/timevals.size();
    }
    
    public void keyPressed(KeyEvent e)
