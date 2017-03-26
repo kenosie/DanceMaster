@@ -8,8 +8,8 @@ import java.awt.image.*;
 import java.io.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import java.util.*;
-import java.time.*;
+import javafx.util.*;
+import java.util.*;;
 //take out implements key listener when rest moved to new panel
 public class BeatCounter extends JPanel implements KeyListener
 {
@@ -53,14 +53,12 @@ public class BeatCounter extends JPanel implements KeyListener
    {
       public void actionPerformed(ActionEvent e) //sets start time, plays music
       {
-         String bip = "bip.mp3";
-         Media hit = new Media(new File(bip).toURI().toString());
+         String songFile = song.toString();
+         Media hit = new Media(new File(songFile).toURI().toString());
          MediaPlayer mediaPlayer = new MediaPlayer(hit);
          start = System.nanoTime();
-         Duration startTime = Duration.ofNanos(start);
-         Duration endTime = Duration.ofNanos(start+2000000000);
-         mediaPlayer.setStartTime(startTime);
-         mediaPlayer.setStopTime(endTime);
+         mediaPlayer.setStartTime(Duration.millis((double)(start/Math.pow(10,6))));
+         mediaPlayer.setStopTime(Duration.millis((double)((start+2000000000)/Math.pow(10,6))));
          mediaPlayer.play();
       }
    }
