@@ -40,16 +40,17 @@ public class DispRes extends JPanel
       mediaPlayer.setVideoSurface(videoSurface);
       
       //mediaPlayer.playMedia("lmao.mp4");
+      
       //String bip = "bip.mp3";
       //Media hit = new Media(new File(bip).toURI().toString());
       //MediaPlayer mediaPlayer = new MediaPlayer(hit);
       //mediaPlayer.play();
    }
 }
-
+   
 /*
 to do:
 display dance moves over music
 display next move coming up in corner
-https://www.google.com/search?q=get+numberical+values+from+wav+file&ie=utf-8&oe=utf-8
+
 */

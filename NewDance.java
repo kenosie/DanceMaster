@@ -7,16 +7,23 @@ import java.awt.event.*;
 import java.awt.image.*;
 import java.io.*;
 import javafx.scene.media.Media;
-public class NewDance extends JPanel
+import java.util.*;
+//take out implements key listener when rest moved to new panel
+public class NewDance extends JPanel implements KeyListener
 {
    private static final int framex = 1024;
    private static final int framey = 768;
    JButton next, back, select;
    public Dimension size;
-   int buttonPress = 0; //Stores if next or back button is pressed: 0 = none 1 = back 2 = next
+   private int buttonPress = 0; //Stores if next or back button is pressed: 0 = none 1 = back 2 = next
+   private ArrayList timevals;
+   private int start, end;
       
    public NewDance()
    {
+      //move this to new panel later
+      timevals = new ArrayList();
+      
       File song;
       
       next = new JButton("Next");
@@ -79,5 +86,20 @@ public class NewDance extends JPanel
    public int getButtonPress()
    {
       return buttonPress;
+   }
+   
+   //button press event (move to new panel later)
+   public void keyPressed(KeyEvent e)
+   {
+      int key = e.getKeyCode();
+      if(key == KeyEvent.VK_SPACE)
+      {
+      }
+   }
+   public void keyReleased(KeyEvent e)
+   {
+   }
+   public void keyTyped(KeyEvent e)
+   {
    }
 }
