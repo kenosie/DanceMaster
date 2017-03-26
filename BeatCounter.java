@@ -15,7 +15,7 @@ public class BeatCounter extends JPanel implements KeyListener
 {
    private static final int framex = 1024;
    private static final int framey = 768;
-   JButton next, begin;
+   JButton back, begin;
    private Image image;
    public Dimension size;
    private int buttonPress = 0; //Stores if next or back button is pressed: 0 = none 1 = back 2 = next
@@ -33,20 +33,20 @@ public class BeatCounter extends JPanel implements KeyListener
        //image = new ImageIcon("background.png").getImage();
       
       begin = new JButton("Start Recording");
-      begin.setFont(new Font("Impact", Font.BOLD, 30));
+      begin.setFont(new Font("Corbel", Font.BOLD, 30));
       begin.addActionListener(new BeginListener());
       begin.setEnabled(false);
-      next = new JButton("Next");
-      next.setFont(new Font("Impact", Font.BOLD, 30));
-      next.addActionListener(new NextListener());
+      back = new JButton("Back");
+      back.setFont(new Font("Corbel", Font.BOLD, 30));
+      back.addActionListener(new BackListener());
       
-      size = next.getPreferredSize();
-      begin.setBounds(100 + size.width, (framey / 2) - (size.height / 2) - 90, size.width, size.height);
+      size = back.getPreferredSize();
+      back.setBounds(100 + size.width, framey - size.height - 100, size.width, size.height);
       size = begin.getPreferredSize();
-      next.setBounds((framex / 2) - (size.width / 2), 270, size.width, size.height);
+      begin.setBounds(framex - size.width - 100, framey - size.height - 100, size.width, size.height);
       
       add(begin);
-      add(next);
+      add(back);
    }
    
    public class BeginListener implements ActionListener
@@ -65,15 +65,15 @@ public class BeatCounter extends JPanel implements KeyListener
       }
    }
    
-   public class NextListener implements ActionListener
+   public class BackListener implements ActionListener
    {
       public void actionPerformed(ActionEvent e)
       {
-         buttonPress = 2;
+         buttonPress = 1;
       }
    }
    
-   public void setFile(File f)
+   public void setSongFile(File f)
    {
       song = f;
    }
