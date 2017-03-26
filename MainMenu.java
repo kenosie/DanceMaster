@@ -8,8 +8,8 @@ import java.io.*;
 
 public class MainMenu extends JPanel
 {
-   private static final int framex = 768;
-   private static final int framey = 1024;
+   private static final int framex = 1024;
+   private static final int framey = 768;
    private Image image;
    private Graphics myBuffer;
    private Boolean inMainMenu = true;
@@ -21,7 +21,7 @@ public class MainMenu extends JPanel
       
       //image = new ImageIcon("background.png").getImage();
       
-      JLabel title = new JLabel("Dance Sequence");
+      JLabel title = new JLabel("Dance Master");
       title.setForeground(Color.WHITE);
       title.setFont(new Font("Impact", Font.BOLD, 30));
       
@@ -36,7 +36,7 @@ public class MainMenu extends JPanel
       size = title.getPreferredSize();
       title.setBounds((framex / 2) - (size.width / 2), 90, size.width, size.height);
       newDanceSize = newDance.getPreferredSize();
-      newDance.setBounds((framex / 2) - (singleSize.width / 2), 270, newDanceSize.width, newDanceSize.height);
+      newDance.setBounds((framex / 2) - (newDanceSize.width / 2), 270, newDanceSize.width, newDanceSize.height);
       quitSize = quit.getPreferredSize();
       quit.setBounds((framex / 2) - (quitSize.width / 2), 670, quitSize.width, quitSize.height);
       

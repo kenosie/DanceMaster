@@ -11,10 +11,10 @@ public class Main
       int panel = 1;
       Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
       
-      JFrame frame = new JFrame("Dance Sequence");
-      frame.setSize(768, 1024);
+      JFrame frame = new JFrame("Dance Master");
+      frame.setSize(1024, 768);
       frame.setResizable(false);
-      frame.setLocation((int)(screenSize.getWidth()/2 - 768/2), 0);
+      frame.setLocation((int)(screenSize.getWidth()/2 - 1024/2), 0);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setContentPane(main);
       frame.setVisible(true);
@@ -42,7 +42,7 @@ public class Main
                      frame.setContentPane(main);
                      break;
                   default:
-                  break;
+                     break;
                }
          }
       }
