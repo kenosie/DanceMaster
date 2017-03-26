@@ -12,16 +12,21 @@ public class NewDance extends JPanel
    private static final int framex = 1024;
    private static final int framey = 768;
    JButton next, back, select;
+   private Image image;
    public Dimension size;
+   File song;
    int buttonPress = 0; //Stores if next or back button is pressed: 0 = none 1 = back 2 = next
       
    public NewDance()
    {
-      File song;
+      this.setLayout(null);
+      
+      //image = new ImageIcon("background.png").getImage();
       
       next = new JButton("Next");
       next.setFont(new Font("Impact", Font.BOLD, 30));
       next.addActionListener(new NextListener());
+      next.setEnabled(false);
       
       back = new JButton("Back");
       back.setFont(new Font("Impact", Font.BOLD, 30));
@@ -29,7 +34,7 @@ public class NewDance extends JPanel
       
       select = new JButton("Select Song");
       select.setFont(new Font("Impact", Font.BOLD, 30));
-      select.addActionListener(new BackListener());
+      select.addActionListener(new SelectListener());
       
       size = next.getPreferredSize();
       next.setBounds(100 + size.width, (framey / 2) - (size.height / 2) - 90, size.width, size.height);
@@ -41,23 +46,6 @@ public class NewDance extends JPanel
       add(next);
       add(back);
       add(select);
-      
-      JButton selectSong = new JButton("Select"); //Select button in window
-      JFileChooser fc = new JFileChooser();
-      fc.setCurrentDirectory(new java.io.File("C:/"));
-      fc.setDialogTitle("Select Song File");
-      FileNameExtensionFilter filter = new FileNameExtensionFilter("MPEG-I Layer 3 (*.mp3)", "mp3"); //sets filter for mp3 files
-      fc.setFileFilter(filter);
-      fc.setFileSelectionMode(JFileChooser.FILES_ONLY); //Opens the file selector that only lets you pick mp3 files
-      
-      while(buttonPress == 0) //until user selects valid file or clicks on back button
-      {
-         if(fc.showOpenDialog(selectSong) == JFileChooser.APPROVE_OPTION)
-         {
-            song = fc.getSelectedFile();
-            break;
-         }
-      }
    }
    
    public class NextListener implements ActionListener
@@ -74,6 +62,46 @@ public class NewDance extends JPanel
       {
          buttonPress = 1;
       }
+   }
+   
+   public class SelectListener implements ActionListener
+   {
+      public void actionPerformed(ActionEvent e)
+      {
+         JButton selectSong = new JButton("Select"); //Select button in window
+         JFileChooser fc = new JFileChooser();
+         fc.setCurrentDirectory(new java.io.File("C:/"));
+         fc.setDialogTitle("Select Song File");
+         FileNameExtensionFilter filter = new FileNameExtensionFilter("MPEG-I Layer 3 (*.mp3)", "mp3"); //sets filter for mp3 files
+         fc.setFileFilter(filter);
+         fc.setFileSelectionMode(JFileChooser.FILES_ONLY); //Opens the file selector that only lets you pick mp3 files
+      
+         while(buttonPress == 0) //until user selects valid file or clicks on back button
+         {
+            if(fc.showOpenDialog(selectSong) == JFileChooser.APPROVE_OPTION)
+            {
+               song = fc.getSelectedFile();
+               break;
+            }
+         }
+         
+         next.setEnabled(true);
+      }
+   }
+   
+   public void paintComponent(Graphics g)
+   {
+      //g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+   }
+   
+   public File getSongFile()
+   {
+      return song;
+   }
+   
+   public void setButtonPress(int i)
+   {
+      buttonPress = i;
    }
    
    public int getButtonPress()
