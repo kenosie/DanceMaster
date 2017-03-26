@@ -14,6 +14,7 @@ public class DispRes extends JPanel
    private static final int framex = 768;
    private static final int framey = 1024;
    private Image image;
+   private int bpm;
    private Graphics myBuffer;
    private Boolean inMainMenu = true;
    public Dimension newDanceSize, quitSize, size, size2;
@@ -35,8 +36,20 @@ public class DispRes extends JPanel
       //mediaPlayer.play();
    }
    
+   public void setBPM(long l)
+   {
+      bpm = (int)(l);
+   }
    
+   public int getButtonPress()
+   {
+      return buttonPress;
+   }
    
+   public void setButtonPress(int i)
+   {
+      buttonPress = i;
+   }
 }
    
 /*
