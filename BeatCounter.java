@@ -7,6 +7,7 @@ import java.awt.event.*;
 import java.awt.image.*;
 import java.io.*;
 import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import java.util.*;
 //take out implements key listener when rest moved to new panel
 public class BeatCounter extends JPanel implements KeyListener
@@ -20,7 +21,7 @@ public class BeatCounter extends JPanel implements KeyListener
    private ArrayList timevals;
    private long start, end;
    private int index = 0;
-   File song;
+   private File song;
       
    public BeatCounter()
    {
@@ -32,11 +33,11 @@ public class BeatCounter extends JPanel implements KeyListener
       
       begin = new JButton("Start Recording");
       begin.setFont(new Font("Impact", Font.BOLD, 30));
-      begin.addActionListener(new NextListener());
+      begin.addActionListener(new BeginListener());
       begin.setEnabled(false);
       next = new JButton("Next");
       next.setFont(new Font("Impact", Font.BOLD, 30));
-      next.addActionListener(new BackListener());
+      next.addActionListener(new NextListener());
       
       size = next.getPreferredSize();
       begin.setBounds(100 + size.width, (framey / 2) - (size.height / 2) - 90, size.width, size.height);
@@ -47,6 +48,19 @@ public class BeatCounter extends JPanel implements KeyListener
       add(next);
    }
    
+   public class BeginListener implements ActionListener
+   {
+      public void actionPerformed(ActionEvent e)
+      {
+         start = System.nanoTime();
+         String bip = "bip.mp3";
+         Media hit = new Media(new File(bip).toURI().toString());
+         MediaPlayer mediaPlayer = new MediaPlayer(hit);
+         mediaPlayer.play();
+         
+      }
+   }
+   
    public class NextListener implements ActionListener
    {
       public void actionPerformed(ActionEvent e)
@@ -55,22 +69,14 @@ public class BeatCounter extends JPanel implements KeyListener
       }
    }
    
-   public class BackListener implements ActionListener
+   public void setFile(File f)
    {
-      public void actionPerformed(ActionEvent e)
-      {
-         buttonPress = 1;
-      }
+      song = f;
    }
    
    public void paintComponent(Graphics g)
    {
       //g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-   }
-   
-   public File getSongFile()
-   {
-      return song;
    }
    
    public void setButtonPress(int i)
