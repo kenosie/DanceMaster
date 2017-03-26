@@ -26,6 +26,13 @@ public class DispRes extends JPanel
       }
       long avg = sum/BeatCounter.timevals.size();
       
+      JFrame clipPlayer = new JFrame("Dance Clip");
+      clipPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      MediaPlayer mediaPanel = new MediaPlayer();
+      clipPlayer.add(mediaPanel);
+      clipPlayer.setSize(800,700);
+      clipPlayer.setLocationRelativeTo(null);
+      clipPlayer.setVisible(true);
       //mediaPlayer.playMedia("lmao.mp4");
       
       //String bip = "bip.mp3";
