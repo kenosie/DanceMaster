@@ -13,6 +13,9 @@ import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 import uk.co.caprica.vlcj.player.embedded.videosurface.CanvasVideoSurface;
 import uk.co.caprica.vlcj.runtime.windows.WindowsCanvas;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 public class DispRes extends JPanel
 {
    private static final int framex = 768;
@@ -35,6 +38,12 @@ public class DispRes extends JPanel
       EmbeddedMediaPlayer mediaPlayer = new EmbeddedMediaPlayer();
       CanvasVideoSurface videoSurface = mediaPlayerFactory.newVideoSurface(canvas);
       mediaPlayer.setVideoSurface(videoSurface);
+      
+      //mediaPlayer.playMedia("lmao.mp4");
+      //String bip = "bip.mp3";
+      //Media hit = new Media(new File(bip).toURI().toString());
+      //MediaPlayer mediaPlayer = new MediaPlayer(hit);
+      //mediaPlayer.play();
    }
 }
 
