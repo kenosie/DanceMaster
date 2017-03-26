@@ -20,7 +20,7 @@ public class BeatCounter extends JPanel implements KeyListener
    private Image image;
    public Dimension size;
    private int buttonPress = 0; //Stores if next or back button is pressed: 0 = none 1 = back 2 = next
-   public ArrayList timevals;
+   public static ArrayList timevals;
    private long start, end;
    private int index = 0;
    private File song;
