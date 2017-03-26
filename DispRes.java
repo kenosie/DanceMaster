@@ -21,19 +21,24 @@ public class DispRes extends JPanel
    int buttonPress = 0; //1 = MainMenu Panel 2 = New Dance
    public DispRes()
    {      
-      JFrame clipPlayer = new JFrame("Dance Clip");
-      clipPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      MediaPlayer mediaPanel = new MediaPlayer();
-      clipPlayer.add(mediaPanel);
-      clipPlayer.setSize(800,700);
-      clipPlayer.setLocationRelativeTo(null);
-      clipPlayer.setVisible(true);
+      // JFrame clipPlayer = new JFrame("Dance Clip");
+//       clipPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//       MediaPlayer mediaPanel = new MediaPlayer();
+//       clipPlayer.add(mediaPanel);
+//       clipPlayer.setSize(800,700);
+//       clipPlayer.setLocationRelativeTo(null);
+//       clipPlayer.setVisible(true);
       //mediaPlayer.playMedia("lmao.mp4");
       
       //String bip = "bip.mp3";
       //Media hit = new Media(new File(bip).toURI().toString());
       //MediaPlayer mediaPlayer = new MediaPlayer(hit);
       //mediaPlayer.play();
+      
+      Stage s = new Stage(StageStyle.DECORATED);
+      s.setTitle("Dance Sequence");
+      Group root = new Group();
+      Media media = new Media();
    }
    
    public void setBPM(long l)
