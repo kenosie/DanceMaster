@@ -15,7 +15,7 @@ public class BeatCounter extends JPanel implements KeyListener
 {
    private static final int framex = 1024;
    private static final int framey = 768;
-   JButton back, begin;
+   JButton back, next, begin;
    private Image image;
    public Dimension size;
    private int buttonPress = 0; //Stores if next or back button is pressed: 0 = none 1 = back 2 = next
@@ -36,17 +36,25 @@ public class BeatCounter extends JPanel implements KeyListener
       begin.setFont(new Font("Corbel", Font.BOLD, 30));
       begin.addActionListener(new BeginListener());
       begin.setEnabled(false);
+      
+      next = new JButton("Next");
+      next.setFont(new Font("Corbel", Font.BOLD, 30));
+      next.addActionListener(new NextListener());
+      
       back = new JButton("Back");
       back.setFont(new Font("Corbel", Font.BOLD, 30));
       back.addActionListener(new BackListener());
       
-      size = back.getPreferredSize();
-      back.setBounds(100 + size.width, framey - size.height - 100, size.width, size.height);
       size = begin.getPreferredSize();
-      begin.setBounds(framex - size.width - 100, framey - size.height - 100, size.width, size.height);
+      begin.setBounds((framex / 2) - (size.width / 2), (framey / 2) - (size.height / 2), size.width, size.height);
+      size = back.getPreferredSize();
+      back.setBounds(100, framey - size.height - 100, size.width, size.height);
+      size = next.getPreferredSize();
+      next.setBounds(framex - size.width - 100, framey - size.height - 100, size.width, size.height);
       
-      add(begin);
+      add(next);
       add(back);
+      add(begin);
    }
    
    public class BeginListener implements ActionListener
@@ -65,6 +73,14 @@ public class BeatCounter extends JPanel implements KeyListener
       }
    }
    
+   public class NextListener implements ActionListener
+   {
+      public void actionPerformed(ActionEvent e)
+      {
+         buttonPress = 2;
+      }
+   }
+   
    public class BackListener implements ActionListener
    {
       public void actionPerformed(ActionEvent e)
@@ -80,6 +96,7 @@ public class BeatCounter extends JPanel implements KeyListener
    
    public void paintComponent(Graphics g)
    {
+      g.clearRect(0, 0, framex, framey);
       //g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
    }
    

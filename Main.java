@@ -1,6 +1,7 @@
 import javax.swing.JFrame;
 import java.awt.Toolkit;
 import java.awt.Dimension;
+import java.io.*;
 
 public class Main
 {
