@@ -13,7 +13,7 @@ public class BeatCounter extends JPanel implements KeyListener
 {
    private static final int framex = 1024;
    private static final int framey = 768;
-   JButton next, back, select;
+   JButton next, begin;
    private Image image;
    public Dimension size;
    private int buttonPress = 0; //Stores if next or back button is pressed: 0 = none 1 = back 2 = next
@@ -24,32 +24,27 @@ public class BeatCounter extends JPanel implements KeyListener
       
    public BeatCounter()
    {
-      //move this to new panel later
       timevals = new ArrayList();
       
       this.setLayout(null);
       
        //image = new ImageIcon("background.png").getImage();
       
-      next = new JButton("Start Recording");
+      begin = new JButton("Start Recording");
+      begin.setFont(new Font("Impact", Font.BOLD, 30));
+      begin.addActionListener(new NextListener());
+      begin.setEnabled(false);
+      next = new JButton("Next");
       next.setFont(new Font("Impact", Font.BOLD, 30));
-      next.addActionListener(new NextListener());
-      next.setEnabled(false);
-      
-      back = new JButton("Next");
-      back.setFont(new Font("Impact", Font.BOLD, 30));
-      back.addActionListener(new BackListener());
+      next.addActionListener(new BackListener());
       
       size = next.getPreferredSize();
-      next.setBounds(100 + size.width, (framey / 2) - (size.height / 2) - 90, size.width, size.height);
-      size = back.getPreferredSize();
-      back.setBounds((framex / 2) - (size.width / 2), 270, size.width, size.height);
-      size = select.getPreferredSize();
-      select.setBounds((framex / 2) - (size.width / 2), (framey / 2) - (size.height / 2), size.width, size.height);
+      begin.setBounds(100 + size.width, (framey / 2) - (size.height / 2) - 90, size.width, size.height);
+      size = begin.getPreferredSize();
+      next.setBounds((framex / 2) - (size.width / 2), 270, size.width, size.height);
       
+      add(begin);
       add(next);
-      add(back);
-      add(select);
    }
    
    public class NextListener implements ActionListener
@@ -90,13 +85,13 @@ public class BeatCounter extends JPanel implements KeyListener
    
    //button press event (move to new panel later)
    public void keyPressed(KeyEvent e)
-   {
+   {  
       int key = e.getKeyCode();
       if(key == KeyEvent.VK_SPACE)
       {
          //set start b4
          end = System.nanoTime();
-         timevals.add(end-start);
+         timevals.add((Integer)((int)(end-start/Math.pow(10,6))));
          start = System.nanoTime();
       }   
    }
